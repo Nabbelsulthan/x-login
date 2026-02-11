@@ -35,24 +35,26 @@ function App() {
           {error && <p role="alert">{error}</p>}
 
           <label htmlFor="username">Username:</label>
-        
+
           <input
             id="username"
             type="text"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            required
           />
-       
-<br/>
+
+          <br />
           <label htmlFor="password">Password:</label>
           <input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
 
-          <br/>
+          <br />
 
           <button type="submit">Submit</button>
         </form>
