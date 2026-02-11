@@ -34,21 +34,25 @@ function App() {
         <form onSubmit={handleSubmit}>
           {error && <p role="alert">{error}</p>}
 
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Username:</label>
+        
           <input
             id="username"
             type="text"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
-
-          <label htmlFor="password">Password</label>
+       
+<br/>
+          <label htmlFor="password">Password:</label>
           <input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          <br/>
 
           <button type="submit">Submit</button>
         </form>
