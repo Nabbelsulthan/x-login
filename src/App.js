@@ -13,36 +13,48 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (!userName || !password) {
+      setError("Username and password are required");
+      return;
+    }
+
     if (name === userName && pass === password) {
       setIsLoggedIn(true);
       setError("");
     } else {
       setError("Invalid username or password");
-      setIsLoggedIn(false)
     }
   }
 
   return (
     <div className="App">
-             <h1>Login Page</h1>
-
+      <h1>Login Page</h1>
 
       {!isLoggedIn ? (
-        <form  onSubmit={handleSubmit}>
-        {error && <p role="alert">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          {error && <p role="alert">{error}</p>}
 
-        <label htmlFor='username'>UserName:</label>
-        <input id='username' type='text' required value={userName} onChange={(e)=> setUserName(e.target.value)}/>
-        <br/>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
 
-        <label htmlFor='password'>Password:</label>
-        <input id='password' type='password' required value={password} onChange={(e)=> setPassword(e.target.value)}/>
-        <br/>
-        <button type='submit'>Submit</button>
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button type="submit">Submit</button>
         </form>
-
-      ) : (<h3>Welcome, {userName}!</h3>)}
-         
+      ) : (
+        <h3>Welcome, user!</h3>
+      )}
     </div>
   );
 }
