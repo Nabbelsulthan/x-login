@@ -18,6 +18,7 @@ function App() {
       setError("");
     } else {
       setError("Invalid username or password");
+      setIsLoggedIn(false)
     }
   }
 
@@ -27,14 +28,15 @@ function App() {
 
 
       {!isLoggedIn ? (
-        <form onSubmit={handleSubmit}>
-          <p>{error}</p>
-        <label>UserName:</label>
-        <input type='text' required value={userName} onChange={(e)=> setUserName(e.target.value)}/>
+        <form  onSubmit={handleSubmit}>
+        {error && <p role="alert">{error}</p>}
+
+        <label htmlFor='username'>UserName:</label>
+        <input id='username' type='text' required value={userName} onChange={(e)=> setUserName(e.target.value)}/>
         <br/>
 
-        <label>Password:</label>
-        <input type='password' required value={password} onChange={(e)=> setPassword(e.target.value)}/>
+        <label htmlFor='password'>Password:</label>
+        <input id='password' type='password' required value={password} onChange={(e)=> setPassword(e.target.value)}/>
         <br/>
         <button type='submit'>Submit</button>
         </form>
